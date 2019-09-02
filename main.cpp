@@ -4,7 +4,7 @@
 int main()
 {
     Menu newMenu;
-    newMenu.mainMenu();
+    newMenu.start();
 
     return 0;
 }
