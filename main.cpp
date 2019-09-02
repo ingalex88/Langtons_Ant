@@ -1,12 +1,10 @@
 #include <iostream>
-
-using std::cout;
-using std::cin;
-using std::endl;
+#include "menu.hpp"
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    Menu newMenu;
+    newMenu.mainMenu();
 
     return 0;
 }
