@@ -1,8 +1,9 @@
 #include "menu.hpp"
+#include "ant.hpp"
+#include "user_validation.hpp"
 
 #include <string>
 #include <iostream>
-#include "user_validation.hpp"
 #include <cstdlib>//to use srand, rand
 #include <chrono>
 #include <thread>
@@ -79,17 +80,17 @@ void Menu::about_Langtons_Ant()
 
 void Menu::get_data()
 {
-    cout << "\n  How long would you like your gird/board to be (how many columns)?" << endl;
-    cout << "  Enter a number between 4 and 100: ";
-    string length;
-    getline(cin, length);
-    columns = user_val(length, 4, 100);
-
     cout << "\n  How high would you like your grid/board to be (how many rows)?" << endl;
     cout << "  Enter a number between 4 and 100: ";
     string height;
     getline(cin, height);
     rows = user_val(height, 4, 100);
+
+    cout << "\n  How long would you like your gird/board to be (how many columns)?" << endl;
+    cout << "  Enter a number between 4 and 100: ";
+    string length;
+    getline(cin, length);
+    columns = user_val(length, 4, 100);
 
     cout << "\n  Now it is time to put the ant on the board" << endl;
     cout << "           1. Place the ant randomly" << endl;
@@ -101,8 +102,8 @@ void Menu::get_data()
 
     if(locationOption == 1)
     {
-        starting_row = rand() % columns + 1;
-        starting_column = rand() % rows + 1;
+        starting_row = rand() % rows + 1;
+        starting_column = rand() % columns + 1;
         cout << "\n  The randomly generated starting point is: " << endl;
         cout << "       - Starting Row: " << starting_row << endl;
         cout << "       - Starting Column: " << starting_column << endl;
@@ -142,6 +143,8 @@ void Menu::get_data()
 void Menu::run_Langtons_Ant()
 {
     get_data();
+    Ant Langtons_Ant(rows, columns, steps);
+    Langtons_Ant.run_simulation();
 }
 
 int Menu::start()
