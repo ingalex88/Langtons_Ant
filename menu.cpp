@@ -8,7 +8,6 @@
 #include <chrono>
 #include <thread>
 #include <unistd.h>
-#include <conio.h>//to use getch()
 #include <time.h>
 
 
@@ -74,8 +73,8 @@ void Menu::about_Langtons_Ant()
     std::this_thread::sleep_for(timespan);
     cout << "\t- If the ant is on a BLACK space, turn LEFT 90 degrees and change the space to WHITE" << endl;
     std::this_thread::sleep_for(timespan);
-    cout << "\n  Press any key to continue ";
-    getch();
+    cout << "\n  Press ENTER to continue ";
+    getchar;
 }
 
 void Menu::get_data()
@@ -136,14 +135,16 @@ void Menu::get_data()
     cout << "     - Starting Row: " << starting_row << endl;
     cout << "     - Starting Column: " << starting_column << endl;
     cout << "  Number of steps: " << steps << endl;
-    cout << "\n  Press any key to start the simulation ";
-    getch();
+    cout << "\n  Press ENTER to start the simulation ";
+    getchar();
 }
 
 void Menu::run_Langtons_Ant()
 {
+    //calling the get_data() function in order to collect the necessary information from the user
     get_data();
-    Ant Langtons_Ant(rows, columns, steps);
+    //creating an Ant object and passing the necessary parameters
+    Ant Langtons_Ant(rows, columns, steps, starting_row, starting_column);
     Langtons_Ant.run_simulation();
 }
 
