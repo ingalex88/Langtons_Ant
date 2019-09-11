@@ -1,3 +1,14 @@
+/***************************************************************
+** Author:      Alexandru Mocanu
+** Date:        09/01/2019
+** Project:     Langton's Ant
+** Description: Ant Class header file. Creates a dynamically
+                allocated 2D array that represents the board with
+                specifications gathered from the user.
+                Runs the simulation and prints the board with every
+                step.
+***************************************************************/
+
 #ifndef ANT_HPP
 #define ANT_HPP
 

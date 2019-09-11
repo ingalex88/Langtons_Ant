@@ -1,3 +1,10 @@
+/***************************************************************
+** Author:      Alexandru Mocanu
+** Date:        09/01/2019
+** Project:     Langton's Ant
+** Description: Menu Class implementation file
+***************************************************************/
+
 #include "menu.hpp"
 #include "ant.hpp"
 #include "user_validation.hpp"
@@ -60,6 +67,9 @@ int Menu::mainMenu()
     return first_menu_option;
 }
 
+/**
+Prints information about the simulation
+**/
 void Menu::about_Langtons_Ant()
 {
     std::chrono::seconds timespan(2);//setting a time of 2 seconds for the program to "sleep" between lines
@@ -77,6 +87,9 @@ void Menu::about_Langtons_Ant()
     getchar;
 }
 
+/**
+Prompts user to enter information about the program/simulation
+**/
 void Menu::get_data()
 {
     cout << "\n  How high would you like your grid/board to be (how many rows)?" << endl;
@@ -139,6 +152,10 @@ void Menu::get_data()
     getchar();
 }
 
+/**
+Runs the simulation by creating an Ant object, passing it the necessary information,
+and calling its 'run_simulation' method
+**/
 void Menu::run_Langtons_Ant()
 {
     //calling the get_data() function in order to collect the necessary information from the user
@@ -148,6 +165,9 @@ void Menu::run_Langtons_Ant()
     Langtons_Ant.run_simulation();
 }
 
+/**
+Loop that will continue as long as the user does not wishes to quit
+**/
 int Menu::start()
 {
     while(first_menu_option != 3)

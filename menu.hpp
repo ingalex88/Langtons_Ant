@@ -1,3 +1,12 @@
+/***************************************************************
+** Author:      Alexandru Mocanu
+** Date:        09/01/2019
+** Project:     Langton's Ant
+** Description: Menu Class header file. Class contains functions
+                to present a menu, prompt user to make selections
+                and run the simulation through the Ant Class
+***************************************************************/
+
 #ifndef MENU_HPP
 #define MENU_HPP
 

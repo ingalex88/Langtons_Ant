@@ -1,3 +1,10 @@
+/***************************************************************
+** Author:      Alexandru Mocanu
+** Date:        09/01/2019
+** Project:     Langton's Ant
+** Description: Ant Class implementation file
+***************************************************************/
+
 #include <iostream>
 #include "ant.hpp"
 #include <string>
@@ -5,6 +12,12 @@
 using std::cout;
 using std::endl;
 
+/**
+Class Constructor; takes as parameters 5 integers;
+Dynamically allocates 2D array of char to represent the board;
+Creates a board 'border'
+Sets initial direction to 'W' (west/screen left)
+**/
 Ant::Ant(int numRows, int numColumns, int numSteps, int startRow, int startCol)
 {
     //adding 2 to the cols and rows to account for the board border that will be added later on
@@ -47,6 +60,9 @@ Ant::Ant(int numRows, int numColumns, int numSteps, int startRow, int startCol)
     stepCounter = 0;
 }
 
+/**
+Destructor frees up the dynamically allocated memory
+**/
 Ant::~Ant()
 {
     for(int i = 0; i < rows; i++)
@@ -57,6 +73,9 @@ Ant::~Ant()
     delete [] board;
 }
 
+/**
+Prints stats about the current steps and prints the board
+**/
 void Ant::print_board()
 {
     std::string dirStr;
@@ -95,6 +114,10 @@ void Ant::print_board()
     }
 }
 
+/**
+Runs the simulation using the designated number of steps;
+Checks for border cases by using the check_border method;
+**/
 void Ant::run_simulation()
 {
     for(stepCounter = 0; stepCounter < steps; stepCounter++)
@@ -182,6 +205,11 @@ void Ant::run_simulation()
     }
 }
 
+/**
+Function to make sure that the ant does not go 'out of bounds';
+If ant is on a border and 'wants' to move past the border, it will
+wrap around the board (appear on the opposite side)
+**/
 void Ant::check_border()
 {
     if(ant_row == 0)
